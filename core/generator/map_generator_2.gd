@@ -16,7 +16,7 @@ const Room = preload("room_2.gd")
 @export var maxRoomCount : int = 10
 
 # 通道（房间与房间直接）宽度
-@export var passageWidth : int = 5
+@export var passageWidth : int = 3
 
 # 地图集的横向大小
 var mapSizeX : int
@@ -145,7 +145,7 @@ func create_passage(roomA, roomB):
 	var centerB = roomB.center * roomCentersSpace
 	# 方向 1 代表 横向，0 代表 纵向
 	var dir
-	if (roomB.center - roomA.center).abs().x == 1:
+	if (roomB.center - roomA.center).abs().x != 0:
 		dir = 1
 	else:
 		dir = 0
@@ -155,8 +155,8 @@ func create_passage(roomA, roomB):
 	var line = get_line(centerA, centerB)
 	for dot in line:
 		if dir == 1:
-			for x in range(dot.x-halfWidth, dot.x+halfWidth+1):
-				set_cell_item(Vector3i(x,0,dot.y),0,0)
-		else:
 			for y in range(dot.y-halfWidth, dot.y+halfWidth+1):
 				set_cell_item(Vector3i(dot.x,0,y),0,0)
+		else:
+			for x in range(dot.x-halfWidth, dot.x+halfWidth+1):
+				set_cell_item(Vector3i(x,0,dot.y),0,0)
