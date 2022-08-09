@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://0wdh12f2vr3p"]
+
+[ext_resource type="MeshLibrary" uid="uid://b1i1fqm8d6c1c" path="res://level/mesh_library.tres" id="1_pv1uy"]
+[ext_resource type="Script" path="res://core/generator/map_generator_2.gd" id="2_coq24"]
+
+[node name="MapGenerator2" type="GridMap"]
+mesh_library = ExtResource("1_pv1uy")
+cell_size = Vector3(1, 1, 1)
+script = ExtResource("2_coq24")
+width = 128
+height = 128

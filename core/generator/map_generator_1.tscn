@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4hha3hb0auhq"]
+
+[ext_resource type="MeshLibrary" uid="uid://b1i1fqm8d6c1c" path="res://level/mesh_library.tres" id="1_vfcvn"]
+[ext_resource type="Script" path="res://core/generator/map_generator_1.gd" id="2_qn3dp"]
+
+[node name="MapGenerator1" type="GridMap"]
+mesh_library = ExtResource("1_vfcvn")
+cell_size = Vector3(1, 1, 1)
+script = ExtResource("2_qn3dp")

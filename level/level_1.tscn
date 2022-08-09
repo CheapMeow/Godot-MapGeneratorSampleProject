@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgrvbb4wfthlo"]
+
+[ext_resource type="PackedScene" uid="uid://c4hha3hb0auhq" path="res://core/generator/map_generator_1.tscn" id="1_omkf0"]
+[ext_resource type="PackedScene" path="res://core/camera/FreeCamera.tscn" id="2_57wd1"]
+
+[node name="Level1" type="Node3D"]
+
+[node name="MapGenerator1" parent="." instance=ExtResource("1_omkf0")]
+
+[node name="FreeCamera" parent="." instance=ExtResource("2_57wd1")]
+transform = Transform3D(1, 0, 0, 0, 0.927027, 0.374995, 0, -0.374995, 0.927027, 0, 1.4525, 3.91049)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.800773, 0.598968, 0, -0.598968, 0.800773, 0, 0, 0)
