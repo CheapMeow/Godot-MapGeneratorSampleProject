@@ -140,7 +140,7 @@ func get_regions(tileType):
 	
 	for x in range(width):
 		for y in range(height):
-			if mapFlags.get_bit(Vector2(x, y)) == false && map[x][y] == tileType:
+			if mapFlags.get_bit(x, y) == false && map[x][y] == tileType:
 				regions.append(get_region_tiles(x, y, tileType, mapFlags))
 	
 	return regions
@@ -151,7 +151,7 @@ func get_region_tiles(startX, startY, tileType, mapFlags):
 	var quene1 : Array
 	var quene2 : Array
 	quene1.append(Vector2i(startX, startY))
-	mapFlags.set_bit(Vector2(startX, startY), true)
+	mapFlags.set_bit(startX, startY, true)
 
 	while quene1.size() > 0:
 		var tile = quene1.pop_back()
@@ -161,8 +161,8 @@ func get_region_tiles(startX, startY, tileType, mapFlags):
 		for i in range(4):
 			var x = tile.x + GEnum.Vector2_Dir[i].x;
 			var y = tile.y + GEnum.Vector2_Dir[i].y;
-			if is_in_map_range(x, y) && mapFlags.get_bit(Vector2(x, y)) == false && map[x][y] == tileType:
-				mapFlags.set_bit(Vector2(x, y), true)
+			if is_in_map_range(x, y) && mapFlags.get_bit(x, y) == false && map[x][y] == tileType:
+				mapFlags.set_bit(x, y, true)
 				quene2.append(Vector2i(x, y))
 
 		if quene1.size() == 0:
